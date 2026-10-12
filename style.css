@@ -218,6 +218,17 @@ body {
   color: var(--color-text-muted);
   line-height: 1.75;
   margin-bottom: 0;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+/* ==========================================================
+   作品介紹卡片網格 (Projects Grid)
+   ========================================================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
 }
 
 /* ==========================================================
@@ -332,7 +343,8 @@ body {
     font-size: 1.2rem;
   }
 
-  .grid-cards {
+  .grid-cards,
+  .projects-grid {
     grid-template-columns: 1fr;
     gap: 12px;
   }
