@@ -1,0 +1,306 @@
+/* ==========================================================
+   林祐菖 - 個人介紹網頁樣式 (style.css)
+   設計風格：日式和風簡約 (Japanese Minimalist / 和の美学)
+   色調特色：生成色暖白紙質背景、藍墨主調、紅茜點綴、溫潤留白
+   ========================================================== */
+
+/* 全域重設與基礎排版 */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* 和色系配色變數 */
+  --bg-page: #fbfaf6;        /* 生成色 / 和紙感溫潤米白 */
+  --bg-card: #ffffff;        /* 純白卡片底色 */
+  --bg-tag: #f2eee5;         /* 淺米灰標籤底色 */
+  --color-primary: #2d4251;  /* 藍墨色 / 深紺色 (標題主色) */
+  --color-accent: #924d45;   /* 茜色 / 弁柄色 (點綴副標與印記) */
+  --color-text-main: #2e3235;/* 墨色 (內文主色，柔和不刺眼) */
+  --color-text-muted: #6e747a;/* 灰墨 (次要說明字色) */
+  --color-border: #e6e2d8;   /* 薄和紙邊框線色 */
+  --color-border-card: #ece8df;
+  --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
+                      "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", 
+                      "YuGothic", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+  --transition-smooth: all 0.25s ease-in-out;
+}
+
+body {
+  background-color: var(--bg-page);
+  color: var(--color-text-main);
+  font-family: var(--font-family-base);
+  font-size: 16px;
+  line-height: 1.85;
+  letter-spacing: 0.035em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 40px 18px;
+}
+
+/* 主版面容器 (桌機置中、寬度自適應) */
+.container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* ==========================================================
+   頁頭與個人標題 (Header)
+   ========================================================== */
+.profile-header {
+  text-align: center;
+  padding: 20px 10px 30px;
+}
+
+/* 純 CSS 呈現日式和風印章徽章 (避免圖片依賴) */
+.avatar-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  margin-bottom: 18px;
+  background-color: var(--color-primary);
+  color: #fbfaf6;
+  font-size: 32px;
+  font-weight: 600;
+  border-radius: 50%;
+  border: 3px solid #e7ded0;
+  box-shadow: 0 4px 12px rgba(45, 66, 81, 0.12);
+  user-select: none;
+}
+
+.name {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  letter-spacing: 0.12em;
+  margin-bottom: 8px;
+}
+
+.tagline {
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+}
+
+/* 簡約分隔細線 */
+.divider {
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-accent);
+  margin: 0 auto;
+  opacity: 0.65;
+  border-radius: 1px;
+}
+
+/* ==========================================================
+   主內容區塊 (Main & Sections)
+   ========================================================== */
+.profile-main {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  margin-top: 20px;
+}
+
+.section {
+  background-color: var(--bg-card);
+  border: 1px solid var(--color-border-card);
+  border-radius: 8px;
+  padding: 30px 28px;
+  box-shadow: 0 2px 8px rgba(45, 50, 55, 0.03);
+}
+
+/* 區塊標題設計 (日式雙語副標點綴) */
+.section-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 12px;
+}
+
+.sub-label {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.06em;
+}
+
+/* 內文段落 */
+.section-content p {
+  color: var(--color-text-main);
+  margin-bottom: 14px;
+  text-align: justify;
+}
+
+.section-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ==========================================================
+   學習興趣卡片網格 (Interests Grid)
+   ========================================================== */
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background-color: var(--bg-page);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 20px;
+  transition: var(--transition-smooth);
+}
+
+.card:hover {
+  border-color: #c7beaf;
+  box-shadow: 0 4px 12px rgba(45, 66, 81, 0.06);
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 10px;
+  padding-left: 10px;
+  border-left: 3px solid var(--color-accent);
+  line-height: 1.35;
+}
+
+.card-desc {
+  font-size: 0.92rem;
+  color: var(--color-text-muted);
+  line-height: 1.75;
+  margin-bottom: 0;
+}
+
+/* ==========================================================
+   技能標籤分組 (Skills Group)
+   ========================================================== */
+.skills-group {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.skill-category {
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--color-border);
+}
+
+.skill-category:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.category-title {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  list-style: none;
+}
+
+.tag {
+  background-color: var(--bg-tag);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-border);
+  font-size: 0.88rem;
+  padding: 5px 14px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+  transition: var(--transition-smooth);
+}
+
+.tag:hover {
+  background-color: #e8e3d8;
+  color: var(--color-primary);
+}
+
+/* ==========================================================
+   頁尾 (Footer)
+   ========================================================== */
+.profile-footer {
+  text-align: center;
+  padding: 40px 10px 20px;
+}
+
+.profile-footer .divider {
+  margin-bottom: 24px;
+}
+
+.copyright {
+  font-size: 0.88rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 6px;
+}
+
+.footer-note {
+  font-size: 0.78rem;
+  color: #9ea3a8;
+  letter-spacing: 0.08em;
+}
+
+/* ==========================================================
+   響應式設計 (針對行動端 ~375px 與小螢幕優化)
+   ========================================================== */
+@media (max-width: 600px) {
+  body {
+    padding: 24px 14px;
+  }
+
+  .name {
+    font-size: 1.65rem;
+  }
+
+  .tagline {
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+
+  .section {
+    padding: 22px 18px;
+    border-radius: 6px;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+  }
+
+  .grid-cards {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .tag {
+    font-size: 0.82rem;
+    padding: 4px 12px;
+  }
+}
+
