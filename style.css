@@ -1,7 +1,7 @@
 /* ==========================================================
    林祐菖 - 個人介紹網頁樣式 (style.css)
-   設計風格：浮世繪風 (Ukiyo-e Woodblock Print Aesthetic)
-   色彩靈感：葛飾北齋「北齋藍」、赤富士「朱丹色」、江戶古和紙色
+   設計風格：富嶽三十六景 · 神奈川沖浪裏 (The Great Wave off Kanagawa)
+   色彩靈感：葛飾北齋「北齋藍 (普魯士藍)」、碎浪白沫、青海波、赤富士朱丹、金泥古和紙
    ========================================================== */
 
 /* 全域重設與基礎排版 */
@@ -12,31 +12,33 @@
 }
 
 :root {
-  /* 浮世繪經典配色變數 */
-  --bg-page: #f5eedf;         /* 江戶古和紙色 (溫潤米黃紙質底色) */
-  --bg-card: #fdfaf4;         /* 浮世繪版畫畫紙底色 */
-  --bg-tag: #ece3cf;          /* 短冊和紙淡色 */
-  --color-primary: #15305b;   /* 北齋藍 / 普魯士藍 (神奈川沖浪裏主色) */
-  --color-accent: #c03823;    /* 赤富士朱丹色 (落款朱印與醒目標示) */
-  --color-gold: #c28e36;      /* 金泥 / 黃唐茶 (江戶古典裝飾金) */
-  --color-text-main: #24221f; /* 濃墨色 (版畫墨印字色) */
-  --color-text-muted: #645e54;/* 灰茶墨色 (次要文字) */
-  --color-border: #d8cdba;    /* 古紙邊框線 */
-  --color-ink-line: #1d2530;  /* 版畫木刻外框墨線 */
+  /* 神奈川沖浪裏 · 浮世繪經典配色變數 */
+  --bg-page: #f4eee2;              /* 富士遠山和紙色 (溫潤米黃古紙底色) */
+  --bg-card: #fdfaf3;              /* 木版年輪版畫畫紙色 */
+  --bg-tag: #e3edf5;               /* 水色薄藍短冊色 */
+  --color-primary-dark: #0a1b33;   /* 濃紺 / 巨浪深淵藍 */
+  --color-primary: #12335c;        /* 葛飾北齋「北齋藍」/ 普魯士藍 (主色調) */
+  --color-primary-light: #245283;  /* 潮汐青藍 / 浪濤漸層 */
+  --color-wave-pale: #98bfdb;      /* 水色 / 薄藍水霧 */
+  --color-wave-foam: #f8fbfe;      /* 白波 / 卷浪飛沫白 */
+  --color-accent: #c03622;         /* 旭日赤富士朱丹色 (落款朱印醒目色) */
+  --color-gold: #c59336;           /* 江戶金泥 / 黃唐茶 (版畫古典裝飾金) */
+  --color-text-main: #1c232d;      /* 濃墨色 (版畫木刻墨印字色) */
+  --color-text-muted: #536070;     /* 藍茶墨色 (次要文字) */
+  --color-border: #d5cbba;         /* 江戶和紙邊界線 */
+  --color-border-wave: #9dbbd4;    /* 浪花細墨線 */
+  --color-ink-line: #0a1522;       /* 木刻雕版外框深黑墨線 */
   --font-family-serif: "Songti TC", "Noto Serif TC", "Yu Mincho", "Hiragino Mincho ProN", serif;
   --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
                       "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-  --transition-smooth: all 0.25s ease-in-out;
+  --transition-smooth: all 0.28s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
   background-color: var(--bg-page);
-  /* 使用純 CSS 渲染細緻浮世繪和紙木版紋理 (無外部圖片依賴) */
-  background-image: 
-    radial-gradient(#ded2be 10%, transparent 11%),
-    radial-gradient(#ded2be 10%, transparent 11%);
-  background-size: 24px 24px;
-  background-position: 0 0, 12px 12px;
+  /* 使用青海波 (Seigaiha) 傳統浮世繪幾何波紋底紋 */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='24' viewBox='0 0 48 24'%3E%3Cpath fill='none' stroke='%23d9cfbd' stroke-width='1.2' d='M0 24 A24 24 0 0 1 48 24 M6 24 A18 18 0 0 1 42 24 M12 24 A12 12 0 0 1 36 24 M18 24 A6 6 0 0 1 30 24 M-24 12 A24 24 0 0 1 24 12 M-18 12 A18 18 0 0 1 18 12 M-12 12 A12 12 0 0 1 12 12 M-6 12 A6 6 0 0 1 6 12 M24 12 A24 24 0 0 1 72 12 M30 12 A18 18 0 0 1 66 12 M36 12 A12 12 0 0 1 60 12 M42 12 A6 6 0 0 1 54 12'/%3E%3C/svg%3E");
+  background-size: 48px 24px;
   color: var(--color-text-main);
   font-family: var(--font-family-base);
   font-size: 16px;
@@ -44,21 +46,41 @@ body {
   letter-spacing: 0.04em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 40px 18px;
+  padding: 44px 18px;
 }
 
-/* 主版面容器 (桌機置中，加入浮世繪外框裱裝風格) */
+/* 主版面容器 (江戶版畫大判裝裱風格，四重邊框層次) */
 .container {
-  max-width: 780px;
+  max-width: 800px;
   margin: 0 auto;
-  background-color: rgba(253, 250, 244, 0.92);
-  border: 3px solid var(--color-primary);
+  background-color: rgba(253, 250, 243, 0.96);
+  border: 4px solid var(--color-primary-dark);
   border-radius: 4px;
   box-shadow: 
     0 0 0 4px var(--bg-page),
-    0 0 0 6px var(--color-gold),
-    0 8px 24px rgba(21, 48, 91, 0.12);
-  padding: 24px 28px;
+    0 0 0 7px var(--color-gold),
+    0 0 0 10px var(--color-primary),
+    0 16px 36px rgba(10, 27, 51, 0.18);
+  padding: 32px 30px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 頂部神奈川沖浪裏漸層飾帶 */
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, 
+    var(--color-primary-dark) 0%, 
+    var(--color-primary) 35%, 
+    var(--color-wave-pale) 50%, 
+    var(--color-primary) 65%, 
+    var(--color-accent) 100%
+  );
 }
 
 /* ==========================================================
@@ -66,56 +88,84 @@ body {
    ========================================================== */
 .profile-header {
   text-align: center;
-  padding: 16px 10px 28px;
+  padding: 14px 10px 26px;
+  position: relative;
 }
 
-/* 浮世繪落款朱印 (Hanko 印章風格，純 CSS 打造免圖片) */
+/* 浪花裝飾徽章 (Wave Crest Badge) */
+.wave-crest-badge {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.hokusai-wave-icon {
+  width: 96px;
+  height: 30px;
+  filter: drop-shadow(0 2px 4px rgba(18, 51, 92, 0.15));
+}
+
+/* 浮世繪落款朱印 (Hanko 印章風格) */
 .avatar-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 68px;
-  height: 68px;
+  width: 70px;
+  height: 70px;
   margin-bottom: 16px;
-  background-color: var(--color-accent);
+  background: linear-gradient(135deg, #c73824 0%, #aa2b1a 100%);
   color: #fffaf0;
   font-family: var(--font-family-serif);
-  font-size: 32px;
+  font-size: 34px;
   font-weight: 700;
-  border-radius: 8px;
+  border-radius: 10px;
   border: 2px solid #fffaf0;
   box-shadow: 
-    0 0 0 3px var(--color-accent),
-    0 4px 10px rgba(192, 56, 35, 0.28);
+    0 0 0 3px #c73824,
+    0 0 0 5px rgba(18, 51, 92, 0.18),
+    0 6px 14px rgba(170, 43, 26, 0.35);
   user-select: none;
-  transform: rotate(-1.5deg); /* 營造手工篆刻印章的自然手感 */
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar-badge:hover {
+  transform: rotate(0deg) scale(1.05);
+  box-shadow: 
+    0 0 0 3px #c73824,
+    0 0 0 6px rgba(18, 51, 92, 0.25),
+    0 8px 18px rgba(170, 43, 26, 0.45);
 }
 
 .name {
   font-family: var(--font-family-serif);
-  font-size: 2.15rem;
+  font-size: 2.25rem;
   font-weight: 700;
-  color: var(--color-primary);
-  letter-spacing: 0.15em;
+  color: var(--color-primary-dark);
+  letter-spacing: 0.18em;
   margin-bottom: 8px;
-  text-shadow: 1px 1px 0 rgba(194, 142, 54, 0.25);
+  text-shadow: 
+    1px 1px 0 rgba(197, 147, 54, 0.35),
+    2px 2px 0 rgba(18, 51, 92, 0.08);
 }
 
 .tagline {
   font-size: 0.95rem;
   color: var(--color-text-muted);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
   margin-bottom: 22px;
   font-weight: 500;
 }
 
-/* 浮世繪波浪/金線感分割線 */
+/* 浮世繪波濤浪花分割線 */
 .divider {
-  width: 80px;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-primary), var(--color-gold), var(--color-accent));
+  width: 140px;
+  height: 20px;
   margin: 0 auto;
-  border-radius: 2px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 20'%3E%3Cpath fill='%2312335c' d='M0 16 C15 16, 20 10, 32 10 C42 10, 46 14, 55 14 C62 14, 66 6, 75 6 C84 6, 88 12, 98 12 C106 12, 110 8, 120 8 C128 8, 133 16, 140 16 L140 20 L0 20 Z'/%3E%3Ccircle cx='75' cy='5' r='2.5' fill='%23c03622'/%3E%3Ccircle cx='32' cy='8' r='1.5' fill='%23c59336'/%3E%3Ccircle cx='120' cy='6' r='1.5' fill='%2398bfdb'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 
 /* ==========================================================
@@ -125,17 +175,23 @@ body {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin-top: 24px;
+  margin-top: 26px;
 }
 
 .section {
   background-color: var(--bg-card);
   border: 1px solid var(--color-border);
-  border-top: 3px solid var(--color-primary);
-  border-radius: 3px;
+  border-top: 3.5px solid var(--color-primary);
+  border-radius: 4px;
   padding: 26px 24px;
-  box-shadow: 0 3px 8px rgba(33, 30, 26, 0.04);
+  box-shadow: 0 4px 12px rgba(10, 27, 51, 0.05);
   position: relative;
+  transition: var(--transition-smooth);
+}
+
+.section:hover {
+  box-shadow: 0 6px 18px rgba(10, 27, 51, 0.08);
+  border-color: #c9bea8;
 }
 
 /* 區塊標題：浮世繪「題簽 / 短冊」樣式 */
@@ -148,24 +204,43 @@ body {
 }
 
 .sub-label {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
   font-size: 0.72rem;
   font-weight: 700;
   color: var(--color-gold);
-  letter-spacing: 0.25em;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
-  margin-bottom: 3px;
+  margin-bottom: 4px;
+}
+
+.sub-label::before {
+  content: "〰";
+  font-size: 0.75rem;
+  color: var(--color-primary-light);
 }
 
 .section-title {
   font-family: var(--font-family-serif);
   font-size: 1.35rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   letter-spacing: 0.08em;
   position: relative;
-  padding-left: 12px;
-  border-left: 4px solid var(--color-accent);
+  padding-left: 14px;
+  border-left: 5px solid var(--color-primary);
+}
+
+/* 標題題簽赤富士朱丹頂標 */
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0;
+  width: 5px;
+  height: 40%;
+  background-color: var(--color-accent);
 }
 
 /* 內文段落 */
@@ -189,26 +264,30 @@ body {
 }
 
 .card {
-  background-color: #f7f2e6;
+  background: linear-gradient(180deg, #fdfbf7 0%, #f7f2e6 100%);
   border: 1px solid var(--color-border);
   border-left: 4px solid var(--color-primary);
-  border-radius: 3px;
+  border-radius: 4px;
   padding: 18px;
   transition: var(--transition-smooth);
+  position: relative;
 }
 
 .card:hover {
   border-color: var(--color-gold);
   border-left-color: var(--color-accent);
-  box-shadow: 0 4px 12px rgba(21, 48, 91, 0.08);
+  box-shadow: 
+    0 6px 16px rgba(10, 27, 51, 0.12),
+    0 0 0 1px rgba(197, 147, 54, 0.2);
   transform: translateY(-2px);
+  background: #fdfaf3;
 }
 
 .card-title {
   font-family: var(--font-family-serif);
   font-size: 1.05rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   margin-bottom: 8px;
   line-height: 1.4;
 }
@@ -225,75 +304,99 @@ body {
 /* ==========================================================
    作品介紹卡片網格與圖片、連結 (Projects Grid, Media & Links)
    ========================================================== */
- .projects-grid {
-   display: grid;
-   grid-template-columns: repeat(2, 1fr);
-   gap: 16px;
- }
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
 
- .project-card {
-   display: flex;
-   flex-direction: column;
-   padding: 16px;
- }
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background: linear-gradient(180deg, #fdfbf7 0%, #f5efe3 100%);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  border-radius: 4px;
+  transition: var(--transition-smooth);
+}
 
- .project-img-link {
-   display: block;
-   overflow: hidden;
-   border-radius: 2px;
-   border: 1px solid var(--color-border);
-   margin-bottom: 12px;
-   background-color: #ede5d4;
-   text-decoration: none;
- }
+.project-card:hover {
+  border-color: var(--color-gold);
+  border-left-color: var(--color-accent);
+  box-shadow: 
+    0 8px 20px rgba(10, 27, 51, 0.14),
+    0 0 0 1px rgba(197, 147, 54, 0.2);
+  transform: translateY(-2px);
+}
 
- .project-media {
-   width: 100%;
-   aspect-ratio: 16 / 9;
-   overflow: hidden;
- }
+.project-img-link {
+  display: block;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 2px solid var(--color-primary-light);
+  margin-bottom: 12px;
+  background-color: var(--color-primary-dark);
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(10, 27, 51, 0.15);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
 
- .project-img {
-   width: 100%;
-   height: 100%;
-   object-fit: cover;
-   display: block;
-   transition: transform 0.35s ease, filter 0.35s ease;
- }
+.project-img-link:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(192, 54, 34, 0.25);
+}
 
- .project-card:hover .project-img {
-   transform: scale(1.04);
- }
+.project-media {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
 
- .project-info {
-   display: flex;
-   flex-direction: column;
-   flex-grow: 1;
- }
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.4s ease;
+}
 
- .project-title-link {
-   color: var(--color-primary);
-   text-decoration: none;
-   transition: var(--transition-smooth);
- }
+.project-card:hover .project-img {
+  transform: scale(1.04);
+}
 
- .project-title-link:hover {
-   color: var(--color-accent);
- }
+.project-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
- .project-link {
-   color: var(--color-primary);
-   text-decoration: underline;
-   text-underline-offset: 3px;
-   text-decoration-color: var(--color-gold);
-   transition: var(--transition-smooth);
-   word-break: break-all;
- }
+.project-title-link {
+  color: var(--color-primary-dark);
+  text-decoration: none;
+  font-family: var(--font-family-serif);
+  font-weight: 700;
+  transition: var(--transition-smooth);
+}
 
- .project-link:hover {
-   color: var(--color-accent);
-   text-decoration-color: var(--color-accent);
- }
+.project-title-link:hover {
+  color: var(--color-accent);
+}
+
+.project-link {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3.5px;
+  text-decoration-color: var(--color-gold);
+  transition: var(--transition-smooth);
+  word-break: break-all;
+  font-size: 0.9rem;
+}
+
+.project-link:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
 
 /* ==========================================================
    技能標籤分組 (Skills Group)
@@ -318,7 +421,7 @@ body {
   font-family: var(--font-family-serif);
   font-size: 1rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   margin-bottom: 12px;
 }
 
@@ -329,22 +432,26 @@ body {
   list-style: none;
 }
 
-/* 短冊和紙風格標籤 */
+/* 短冊和紙風格標籤 (青藍水霧海濤質感) */
 .tag {
-  background-color: var(--bg-tag);
-  color: var(--color-text-main);
-  border: 1px solid var(--color-border);
+  background: linear-gradient(180deg, #edf4f9 0%, #e1ecf5 100%);
+  color: var(--color-primary-dark);
+  border: 1px solid #b7cfe2;
   font-size: 0.88rem;
   padding: 4px 14px;
   border-radius: 4px;
   letter-spacing: 0.02em;
+  font-weight: 500;
+  box-shadow: 0 1px 3px rgba(10, 27, 51, 0.05);
   transition: var(--transition-smooth);
 }
 
 .tag:hover {
-  background-color: var(--color-primary);
+  background: var(--color-primary-dark);
   color: #fffaf0;
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(10, 27, 51, 0.22);
 }
 
 /* ==========================================================
@@ -369,7 +476,7 @@ body {
 .footer-note {
   font-size: 0.78rem;
   color: var(--color-gold);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   font-weight: 600;
 }
 
@@ -379,19 +486,22 @@ body {
 @media (max-width: 600px) {
   body {
     padding: 16px 10px;
+    background-size: 36px 18px;
   }
 
   .container {
-    padding: 18px 14px;
-    border-width: 2px;
+    padding: 20px 14px;
+    border-width: 3px;
     box-shadow: 
       0 0 0 2px var(--bg-page),
-      0 0 0 4px var(--color-gold),
-      0 6px 16px rgba(21, 48, 91, 0.1);
+      0 0 0 5px var(--color-gold),
+      0 0 0 7px var(--color-primary),
+      0 8px 20px rgba(10, 27, 51, 0.15);
   }
 
   .name {
-    font-size: 1.7rem;
+    font-size: 1.75rem;
+    letter-spacing: 0.12em;
   }
 
   .tagline {
@@ -413,7 +523,8 @@ body {
     gap: 12px;
   }
 
-  .card {
+  .card,
+  .project-card {
     padding: 14px;
   }
 
