@@ -1,7 +1,7 @@
 /* ==========================================================
    林祐菖 - 個人介紹網頁樣式 (style.css)
-   設計風格：日式和風簡約 (Japanese Minimalist / 和の美学)
-   色調特色：生成色暖白紙質背景、藍墨主調、紅茜點綴、溫潤留白
+   設計風格：浮世繪風 (Ukiyo-e Woodblock Print Aesthetic)
+   色彩靈感：葛飾北齋「北齋藍」、赤富士「朱丹色」、江戶古和紙色
    ========================================================== */
 
 /* 全域重設與基礎排版 */
@@ -12,38 +12,53 @@
 }
 
 :root {
-  /* 和色系配色變數 */
-  --bg-page: #fbfaf6;        /* 生成色 / 和紙感溫潤米白 */
-  --bg-card: #ffffff;        /* 純白卡片底色 */
-  --bg-tag: #f2eee5;         /* 淺米灰標籤底色 */
-  --color-primary: #2d4251;  /* 藍墨色 / 深紺色 (標題主色) */
-  --color-accent: #924d45;   /* 茜色 / 弁柄色 (點綴副標與印記) */
-  --color-text-main: #2e3235;/* 墨色 (內文主色，柔和不刺眼) */
-  --color-text-muted: #6e747a;/* 灰墨 (次要說明字色) */
-  --color-border: #e6e2d8;   /* 薄和紙邊框線色 */
-  --color-border-card: #ece8df;
+  /* 浮世繪經典配色變數 */
+  --bg-page: #f5eedf;         /* 江戶古和紙色 (溫潤米黃紙質底色) */
+  --bg-card: #fdfaf4;         /* 浮世繪版畫畫紙底色 */
+  --bg-tag: #ece3cf;          /* 短冊和紙淡色 */
+  --color-primary: #15305b;   /* 北齋藍 / 普魯士藍 (神奈川沖浪裏主色) */
+  --color-accent: #c03823;    /* 赤富士朱丹色 (落款朱印與醒目標示) */
+  --color-gold: #c28e36;      /* 金泥 / 黃唐茶 (江戶古典裝飾金) */
+  --color-text-main: #24221f; /* 濃墨色 (版畫墨印字色) */
+  --color-text-muted: #645e54;/* 灰茶墨色 (次要文字) */
+  --color-border: #d8cdba;    /* 古紙邊框線 */
+  --color-ink-line: #1d2530;  /* 版畫木刻外框墨線 */
+  --font-family-serif: "Songti TC", "Noto Serif TC", "Yu Mincho", "Hiragino Mincho ProN", serif;
   --font-family-base: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, 
-                      "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", 
-                      "YuGothic", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+                      "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", sans-serif;
   --transition-smooth: all 0.25s ease-in-out;
 }
 
 body {
   background-color: var(--bg-page);
+  /* 使用純 CSS 渲染細緻浮世繪和紙木版紋理 (無外部圖片依賴) */
+  background-image: 
+    radial-gradient(#ded2be 10%, transparent 11%),
+    radial-gradient(#ded2be 10%, transparent 11%);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
   color: var(--color-text-main);
   font-family: var(--font-family-base);
   font-size: 16px;
   line-height: 1.85;
-  letter-spacing: 0.035em;
+  letter-spacing: 0.04em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 40px 18px;
 }
 
-/* 主版面容器 (桌機置中、寬度自適應) */
+/* 主版面容器 (桌機置中，加入浮世繪外框裱裝風格) */
 .container {
-  max-width: 760px;
+  max-width: 780px;
   margin: 0 auto;
+  background-color: rgba(253, 250, 244, 0.92);
+  border: 3px solid var(--color-primary);
+  border-radius: 4px;
+  box-shadow: 
+    0 0 0 4px var(--bg-page),
+    0 0 0 6px var(--color-gold),
+    0 8px 24px rgba(21, 48, 91, 0.12);
+  padding: 24px 28px;
 }
 
 /* ==========================================================
@@ -51,50 +66,56 @@ body {
    ========================================================== */
 .profile-header {
   text-align: center;
-  padding: 20px 10px 30px;
+  padding: 16px 10px 28px;
 }
 
-/* 純 CSS 呈現日式和風印章徽章 (避免圖片依賴) */
+/* 浮世繪落款朱印 (Hanko 印章風格，純 CSS 打造免圖片) */
 .avatar-badge {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 72px;
-  height: 72px;
-  margin-bottom: 18px;
-  background-color: var(--color-primary);
-  color: #fbfaf6;
+  width: 68px;
+  height: 68px;
+  margin-bottom: 16px;
+  background-color: var(--color-accent);
+  color: #fffaf0;
+  font-family: var(--font-family-serif);
   font-size: 32px;
-  font-weight: 600;
-  border-radius: 50%;
-  border: 3px solid #e7ded0;
-  box-shadow: 0 4px 12px rgba(45, 66, 81, 0.12);
+  font-weight: 700;
+  border-radius: 8px;
+  border: 2px solid #fffaf0;
+  box-shadow: 
+    0 0 0 3px var(--color-accent),
+    0 4px 10px rgba(192, 56, 35, 0.28);
   user-select: none;
+  transform: rotate(-1.5deg); /* 營造手工篆刻印章的自然手感 */
 }
 
 .name {
-  font-size: 2rem;
+  font-family: var(--font-family-serif);
+  font-size: 2.15rem;
   font-weight: 700;
   color: var(--color-primary);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.15em;
   margin-bottom: 8px;
+  text-shadow: 1px 1px 0 rgba(194, 142, 54, 0.25);
 }
 
 .tagline {
   font-size: 0.95rem;
   color: var(--color-text-muted);
-  letter-spacing: 0.05em;
-  margin-bottom: 24px;
+  letter-spacing: 0.06em;
+  margin-bottom: 22px;
+  font-weight: 500;
 }
 
-/* 簡約分隔細線 */
+/* 浮世繪波浪/金線感分割線 */
 .divider {
-  width: 50px;
-  height: 2px;
-  background-color: var(--color-accent);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-gold), var(--color-accent));
   margin: 0 auto;
-  opacity: 0.65;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 /* ==========================================================
@@ -103,40 +124,48 @@ body {
 .profile-main {
   display: flex;
   flex-direction: column;
-  gap: 36px;
-  margin-top: 20px;
+  gap: 32px;
+  margin-top: 24px;
 }
 
 .section {
   background-color: var(--bg-card);
-  border: 1px solid var(--color-border-card);
-  border-radius: 8px;
-  padding: 30px 28px;
-  box-shadow: 0 2px 8px rgba(45, 50, 55, 0.03);
+  border: 1px solid var(--color-border);
+  border-top: 3px solid var(--color-primary);
+  border-radius: 3px;
+  padding: 26px 24px;
+  box-shadow: 0 3px 8px rgba(33, 30, 26, 0.04);
+  position: relative;
 }
 
-/* 區塊標題設計 (日式雙語副標點綴) */
+/* 區塊標題：浮世繪「題簽 / 短冊」樣式 */
 .section-header {
-  margin-bottom: 20px;
+  margin-bottom: 18px;
   border-bottom: 1px solid var(--color-border);
-  padding-bottom: 12px;
+  padding-bottom: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 .sub-label {
-  display: block;
+  display: inline-block;
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--color-accent);
-  letter-spacing: 0.22em;
+  color: var(--color-gold);
+  letter-spacing: 0.25em;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .section-title {
+  font-family: var(--font-family-serif);
   font-size: 1.35rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
-  letter-spacing: 0.06em;
+  letter-spacing: 0.08em;
+  position: relative;
+  padding-left: 12px;
+  border-left: 4px solid var(--color-accent);
 }
 
 /* 內文段落 */
@@ -156,30 +185,32 @@ body {
 .grid-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
+  gap: 16px;
 }
 
 .card {
-  background-color: var(--bg-page);
+  background-color: #f7f2e6;
   border: 1px solid var(--color-border);
-  border-radius: 6px;
-  padding: 20px;
+  border-left: 4px solid var(--color-primary);
+  border-radius: 3px;
+  padding: 18px;
   transition: var(--transition-smooth);
 }
 
 .card:hover {
-  border-color: #c7beaf;
-  box-shadow: 0 4px 12px rgba(45, 66, 81, 0.06);
+  border-color: var(--color-gold);
+  border-left-color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(21, 48, 91, 0.08);
+  transform: translateY(-2px);
 }
 
 .card-title {
+  font-family: var(--font-family-serif);
   font-size: 1.05rem;
-  font-weight: 600;
+  font-weight: 700;
   color: var(--color-primary);
-  margin-bottom: 10px;
-  padding-left: 10px;
-  border-left: 3px solid var(--color-accent);
-  line-height: 1.35;
+  margin-bottom: 8px;
+  line-height: 1.4;
 }
 
 .card-desc {
@@ -195,7 +226,7 @@ body {
 .skills-group {
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 20px;
 }
 
 .skill-category {
@@ -209,8 +240,9 @@ body {
 }
 
 .category-title {
-  font-size: 0.98rem;
-  font-weight: 600;
+  font-family: var(--font-family-serif);
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--color-primary);
   margin-bottom: 12px;
 }
@@ -222,20 +254,22 @@ body {
   list-style: none;
 }
 
+/* 短冊和紙風格標籤 */
 .tag {
   background-color: var(--bg-tag);
   color: var(--color-text-main);
   border: 1px solid var(--color-border);
   font-size: 0.88rem;
-  padding: 5px 14px;
-  border-radius: 20px;
+  padding: 4px 14px;
+  border-radius: 4px;
   letter-spacing: 0.02em;
   transition: var(--transition-smooth);
 }
 
 .tag:hover {
-  background-color: #e8e3d8;
-  color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: #fffaf0;
+  border-color: var(--color-primary);
 }
 
 /* ==========================================================
@@ -243,24 +277,25 @@ body {
    ========================================================== */
 .profile-footer {
   text-align: center;
-  padding: 40px 10px 20px;
+  padding: 32px 10px 12px;
 }
 
 .profile-footer .divider {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .copyright {
   font-size: 0.88rem;
   color: var(--color-text-muted);
   letter-spacing: 0.05em;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
 }
 
 .footer-note {
   font-size: 0.78rem;
-  color: #9ea3a8;
+  color: var(--color-gold);
   letter-spacing: 0.08em;
+  font-weight: 600;
 }
 
 /* ==========================================================
@@ -268,21 +303,29 @@ body {
    ========================================================== */
 @media (max-width: 600px) {
   body {
-    padding: 24px 14px;
+    padding: 16px 10px;
+  }
+
+  .container {
+    padding: 18px 14px;
+    border-width: 2px;
+    box-shadow: 
+      0 0 0 2px var(--bg-page),
+      0 0 0 4px var(--color-gold),
+      0 6px 16px rgba(21, 48, 91, 0.1);
   }
 
   .name {
-    font-size: 1.65rem;
+    font-size: 1.7rem;
   }
 
   .tagline {
     font-size: 0.88rem;
-    line-height: 1.6;
+    line-height: 1.5;
   }
 
   .section {
-    padding: 22px 18px;
-    border-radius: 6px;
+    padding: 18px 14px;
   }
 
   .section-title {
@@ -291,16 +334,15 @@ body {
 
   .grid-cards {
     grid-template-columns: 1fr;
-    gap: 14px;
+    gap: 12px;
   }
 
   .card {
-    padding: 16px;
+    padding: 14px;
   }
 
   .tag {
     font-size: 0.82rem;
-    padding: 4px 12px;
+    padding: 4px 10px;
   }
 }
-
